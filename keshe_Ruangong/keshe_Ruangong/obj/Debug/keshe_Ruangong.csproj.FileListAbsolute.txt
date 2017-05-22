@@ -1,0 +1,9 @@
+D:\c#\keshe_Ruangong\keshe_Ruangong\bin\Debug\keshe_Ruangong.exe.config
+D:\c#\keshe_Ruangong\keshe_Ruangong\bin\Debug\keshe_Ruangong.exe
+D:\c#\keshe_Ruangong\keshe_Ruangong\bin\Debug\keshe_Ruangong.pdb
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.csprojResolveAssemblyReference.cache
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.Form1.resources
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.Properties.Resources.resources
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.csproj.GenerateResource.Cache
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.exe
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.pdb
