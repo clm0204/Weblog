@@ -109,6 +109,7 @@
             this.bt_zhuce.TabIndex = 14;
             this.bt_zhuce.Text = "注册";
             this.bt_zhuce.UseVisualStyleBackColor = false;
+            this.bt_zhuce.Click += new System.EventHandler(this.bt_zhuce_Click);
             // 
             // Form1
             // 

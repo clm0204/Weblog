@@ -59,13 +59,20 @@ namespace keshe_Ruangong
                 }
                 if (flag == 1)
                 {
-                    MessageBox.Show("登录成功！");       
+                    MessageBox.Show("登录成功！");
                 }
-                else
+                else 
                 {
                     MessageBox.Show("账号或密码输入错误！");
                 }
             }
+        }
+
+        private void bt_zhuce_Click(object sender, EventArgs e)
+        {
+            ZhuCe f2 = new ZhuCe(this);
+            f2.Show();
+            this.Hide();
         }
     }
 }

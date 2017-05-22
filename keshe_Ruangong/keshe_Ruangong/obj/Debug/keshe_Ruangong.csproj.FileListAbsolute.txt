@@ -7,3 +7,4 @@ D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.Properties.Resource
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.csproj.GenerateResource.Cache
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.exe
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.pdb
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.ZhuCe.resources
