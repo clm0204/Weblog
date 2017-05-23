@@ -93,6 +93,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(339, 115);
             this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 19;
             // 
@@ -111,8 +112,10 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(339, 162);
             this.textBox4.Name = "textBox4";
+            this.textBox4.PasswordChar = '*';
             this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 21;
+            this.textBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox4_MouseDown);
             // 
             // label4
             // 
@@ -135,6 +138,7 @@
             this.bt_zhuce.TabIndex = 22;
             this.bt_zhuce.Text = "注册";
             this.bt_zhuce.UseVisualStyleBackColor = false;
+            this.bt_zhuce.Click += new System.EventHandler(this.bt_zhuce_Click);
             // 
             // ZhuCe
             // 

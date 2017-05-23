@@ -59,7 +59,10 @@ namespace keshe_Ruangong
                 }
                 if (flag == 1)
                 {
-                    MessageBox.Show("登录成功！");
+                   // MessageBox.Show("登录成功！");
+                    main f2 = new main(textBox1.Text, textBox2.Text);
+                    f2.Show();
+                    this.Hide();
                 }
                 else 
                 {
