@@ -158,7 +158,8 @@ namespace keshe_Ruangong
 
         private void bt_zhuce_Click(object sender, EventArgs e)
         {
-
+            add_friend f1 = new add_friend(user);
+            f1.Show();
         }
 
        

@@ -9,3 +9,4 @@ D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.exe
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.pdb
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.ZhuCe.resources
 D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.main.resources
+D:\c#\keshe_Ruangong\keshe_Ruangong\obj\Debug\keshe_Ruangong.add_friend.resources
