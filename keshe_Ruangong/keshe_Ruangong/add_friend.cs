@@ -18,7 +18,7 @@ namespace keshe_Ruangong
         {
             InitializeComponent();
             user = _user;
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + "/img/dl_beijing.jpg");
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + "/img/beijing.jpg");
 
         }
 

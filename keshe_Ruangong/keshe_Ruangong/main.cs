@@ -17,18 +17,11 @@ namespace keshe_Ruangong
         public main(string _user ,string _psw)
         {
             InitializeComponent();
+            pictureBox1.ImageLocation = Application.StartupPath + "/img/博客.png";
             psw = _psw;
             user = _user;
-            panel1.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/beijing_main.jpg");
-        }
-
-        private void main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void 我的好友ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/beijing.jpg");
+            //好友
             dataGridView1.Visible = true;
             panel3.Visible = true;
             dataGridView1.AllowUserToAddRows = false;
@@ -38,7 +31,7 @@ namespace keshe_Ruangong
 
             SqlCommand selectcmd = new SqlCommand();
             selectcmd.Connection = lian;
-            selectcmd.CommandText = "select username2 from friend where username1 = '" + user 
+            selectcmd.CommandText = "select username2 from friend where username1 = '" + user
                 + "' order by username2";
             SqlDataAdapter custDA = new SqlDataAdapter();
             custDA.SelectCommand = selectcmd;
@@ -73,6 +66,11 @@ namespace keshe_Ruangong
             dataGridView1.Columns[2].DefaultCellStyle.SelectionBackColor = Color.White;
             dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.ReadOnly = true;
+        }
+
+        private void main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -121,6 +119,7 @@ namespace keshe_Ruangong
                     custDA.SelectCommand = selectcmd;
 
                     DataSet ds = new DataSet();
+                    //ds.Tables[0].Columns.Add(new DataColumn("bt0", typeof()));
                     custDA.Fill(ds);
                     ds.Tables[0].Columns.Add(new DataColumn("bt", typeof(string)));
                     ds.Tables[0].Columns.Add(new DataColumn("bt2", typeof(string)));
@@ -161,7 +160,100 @@ namespace keshe_Ruangong
             add_friend f1 = new add_friend(user);
             f1.Show();
         }
+        public bool flag1, flag2;
+        int num;
+        private void 个人信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            panel5.Visible = true;
+            
+           // panel3.Visible = false;
+            label3.Text = user;
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
 
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select * from title where username = '"+user+"' order by time";
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            flag1 = flag2 = false;
+            num = 0;
+            filltitle(ds,num);
+        }
+        
+        public void filltitle(DataSet ds,int now)
+        {
+            panel6.Visible = false;
+            panel7.Visible = false;
+            panel8.Visible = false;
+            for (int i = now; i < ds.Tables[0].Rows.Count && i<now+3; ++i)
+            {
+                if (i == now)
+                {
+                    panel6.Visible = true;
+                    pictureBox2.ImageLocation = Application.StartupPath + "/img/rw.png";
+                    label7.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
+                    label8.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                }
+                else if (i == now + 1)
+                {
+                    panel7.Visible = true;
+                    pictureBox3.ImageLocation = Application.StartupPath + "/img/rw.png";
+                    label10.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
+                    label9.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                }
+                else
+                {
+                    panel8.Visible = true;
+                    pictureBox4.ImageLocation = Application.StartupPath + "/img/rw.png";
+                    label12.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
+                    label1.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                }
+            }
+        }
+
+        private void panel6_MouseEnter(object sender, EventArgs e)
+        {
+            panel6.BackColor = Color.Azure;
+        }
+
+        private void panel6_MouseLeave(object sender, EventArgs e)
+        {
+            panel6.BackColor = Color.Snow;
+        }
+
+        private void label8_MouseEnter(object sender, EventArgs e)
+        {
+            panel6.BackColor = Color.Azure;
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            panel7.BackColor = Color.Azure;
+        }
+
+        private void panel7_MouseLeave(object sender, EventArgs e)
+        {
+            panel7.BackColor = Color.Snow;
+        }
+
+        private void pictureBox4_MouseEnter(object sender, EventArgs e)
+        {
+            panel8.BackColor = Color.Azure;
+        }
+
+        private void panel8_MouseLeave(object sender, EventArgs e)
+        {
+            panel8.BackColor = Color.Snow;
+        }
+
+       
+        
        
 
         
