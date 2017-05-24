@@ -166,7 +166,7 @@ namespace keshe_Ruangong
         {
             
             panel5.Visible = true;
-            
+            panel9.Visible = false;
            // panel3.Visible = false;
             label3.Text = user;
             SqlConnection lian = new SqlConnection();
@@ -251,6 +251,50 @@ namespace keshe_Ruangong
         {
             panel8.BackColor = Color.Snow;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("请填写标题！");
+                return;
+            }
+            if (textBox2.Text == "")
+            {
+                MessageBox.Show("请填写文本内容！");
+                return;
+            }
+            string n;
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
+
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select * from title";
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            n = ds.Tables[0].Rows.Count.ToString();
+            string time = System.DateTime.Now.ToString(); 
+
+            selectcmd.CommandText = "insert into title values('"+n+"','"+user
+                +"','"+textBox1.Text+"','"+textBox2.Text+"','"+time+"')";
+            int j = selectcmd.ExecuteNonQuery();
+            if (j == 1)
+            {
+                MessageBox.Show("发表成功！");
+            }
+        }
+
+        private void 发表博客ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel9.Visible = true;
+        }
+
+       
 
        
         
