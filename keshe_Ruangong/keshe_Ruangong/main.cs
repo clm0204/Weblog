@@ -212,9 +212,18 @@ namespace keshe_Ruangong
                     panel8.Visible = true;
                     pictureBox4.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label12.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
-                    label1.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                    label11.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
                 }
             }
+            if (now >= 3)
+                flag1 = true;
+            else
+                flag1 = false;
+
+            if (now < ds.Tables[0].Rows.Count - 1)
+                flag2 = true;
+            else
+                flag2 = false; 
         }
 
         private void panel6_MouseEnter(object sender, EventArgs e)
@@ -237,10 +246,7 @@ namespace keshe_Ruangong
             panel7.BackColor = Color.Azure;
         }
 
-        private void panel7_MouseLeave(object sender, EventArgs e)
-        {
-            panel7.BackColor = Color.Snow;
-        }
+       
 
         private void pictureBox4_MouseEnter(object sender, EventArgs e)
         {
@@ -277,7 +283,7 @@ namespace keshe_Ruangong
 
             DataSet ds = new DataSet();
             custDA.Fill(ds);
-            n = ds.Tables[0].Rows.Count.ToString();
+            n = (ds.Tables[0].Rows.Count+1).ToString();
             string time = System.DateTime.Now.ToString(); 
 
             selectcmd.CommandText = "insert into title values('"+n+"','"+user
@@ -286,21 +292,58 @@ namespace keshe_Ruangong
             if (j == 1)
             {
                 MessageBox.Show("发表成功！");
+                textBox1.Text = "";
+                textBox2.Text = "";
             }
         }
 
         private void 发表博客ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel9.Visible = true;
+            panel5.Visible = false;
         }
 
-       
+        private void panel7_MouseLeave(object sender, EventArgs e)
+        {
+            panel7.BackColor = Color.Snow;
+        }
 
-       
-        
-       
+        private void label7_MouseLeave(object sender, EventArgs e)
+        {
+            panel6.BackColor = Color.Snow;
+        }
 
-        
+        private void label9_MouseLeave(object sender, EventArgs e)
+        {
+            panel7.BackColor = Color.Snow;
+        }
+
+        private void label11_MouseLeave(object sender, EventArgs e)
+        {
+            panel8.BackColor = Color.Snow;
+        }
+
+        private void label4_MouseEnter(object sender, EventArgs e)
+        {
+            if (flag1 == true)
+                label4.ForeColor = Color.Blue;
+        }
+
+        private void label4_MouseLeave(object sender, EventArgs e)
+        {
+            label4.ForeColor = Color.Black;
+        }
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            if (flag2 == true)
+                label5.ForeColor = Color.Blue;
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Black;
+        }
 
     }
 }
