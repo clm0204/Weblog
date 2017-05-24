@@ -199,6 +199,7 @@ namespace keshe_Ruangong
                     pictureBox2.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label7.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label8.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                    label16.Text = user;
                 }
                 else if (i == now + 1)
                 {
@@ -206,6 +207,7 @@ namespace keshe_Ruangong
                     pictureBox3.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label10.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label9.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                    label17.Text = user;
                 }
                 else
                 {
@@ -213,6 +215,7 @@ namespace keshe_Ruangong
                     pictureBox4.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label12.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label11.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
+                    label18.Text = user;
                 }
             }
             if (now >= 3)
