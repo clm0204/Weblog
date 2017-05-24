@@ -345,5 +345,47 @@ namespace keshe_Ruangong
             label5.ForeColor = Color.Black;
         }
 
+        private void label4_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (flag1 == true)
+            {
+                SqlConnection lian = new SqlConnection();
+                lian.ConnectionString = conn.con;
+                lian.Open();
+
+                SqlCommand selectcmd = new SqlCommand();
+                selectcmd.Connection = lian;
+                selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                SqlDataAdapter custDA = new SqlDataAdapter();
+                custDA.SelectCommand = selectcmd;
+
+                DataSet ds = new DataSet();
+                custDA.Fill(ds);
+                filltitle(ds, num - 3);
+                num = num - 3;
+            }
+        }
+
+        private void label5_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (flag2 == true)
+            {
+                SqlConnection lian = new SqlConnection();
+                lian.ConnectionString = conn.con;
+                lian.Open();
+
+                SqlCommand selectcmd = new SqlCommand();
+                selectcmd.Connection = lian;
+                selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                SqlDataAdapter custDA = new SqlDataAdapter();
+                custDA.SelectCommand = selectcmd;
+
+                DataSet ds = new DataSet();
+                custDA.Fill(ds);
+                filltitle(ds, num + 3);
+                num = num + 3;
+            }
+        }
+
     }
 }
