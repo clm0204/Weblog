@@ -162,6 +162,7 @@ namespace keshe_Ruangong
         }
         public bool flag1, flag2;
         int num;
+        string[] id = new string[5] ;
         private void 个人信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -200,6 +201,7 @@ namespace keshe_Ruangong
                     label7.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label8.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
                     label16.Text = user;
+                    id[0] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
                 else if (i == now + 1)
                 {
@@ -208,6 +210,7 @@ namespace keshe_Ruangong
                     label10.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label9.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
                     label17.Text = user;
+                    id[1] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
                 else
                 {
@@ -216,6 +219,7 @@ namespace keshe_Ruangong
                     label12.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label11.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
                     label18.Text = user;
+                    id[2] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
             }
             if (now >= 3)
@@ -388,6 +392,24 @@ namespace keshe_Ruangong
                 filltitle(ds, num + 3);
                 num = num + 3;
             }
+        }
+
+        private void label7_MouseDown(object sender, MouseEventArgs e)
+        {
+            WenZhang f2 = new WenZhang(user, id[0]);
+            f2.Show();
+        }
+
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        {
+            WenZhang f2 = new WenZhang(user, id[1]);
+            f2.Show();
+        }
+
+        private void label12_MouseDown(object sender, MouseEventArgs e)
+        {
+            WenZhang f2 = new WenZhang(user, id[2]);
+            f2.Show();
         }
 
     }
