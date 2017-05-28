@@ -52,19 +52,21 @@ namespace keshe_Ruangong
             panel5.Location = new Point(panel5.Location.X,label4.Location.Y+label4.Size.Height )　;
             flag1 = flag2 = false;
             num = 0;
-            selectcmd.CommandText = "select * from comment where titid = '"+id+"'";
+            selectcmd.CommandText = "select * from comment where titid = '"+id+"' order by data";
             custDA.SelectCommand = selectcmd;
 
             DataSet ds2 = new DataSet();
             custDA.Fill(ds2);
             fillpinglun(ds2, num);
             lian.Close();
+            panel1.Height += 15;
         }
         public void fillpinglun(DataSet ds, int now)
         {
             panel6.Visible = false;
             panel7.Visible = false;
             panel8.Visible = false;
+            label5.Visible = false;
             for (int i = now; i < ds.Tables[0].Rows.Count && i < now + 3; ++i)
             {
                 if (i == now)
@@ -92,6 +94,12 @@ namespace keshe_Ruangong
                     label11.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
                     label18.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                 }
+            }
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                label7.Visible = false;
+                label8.Visible = false;
+                label5.Visible = true;
             }
             if (now >= 3)
                 flag1 = true;

@@ -52,6 +52,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
@@ -128,6 +129,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.label7);
@@ -315,6 +317,16 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("楷体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(277, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 21);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "暂无评论";
+            // 
             // WenZhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -374,5 +386,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label5;
     }
 }
