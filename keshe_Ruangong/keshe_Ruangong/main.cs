@@ -66,6 +66,7 @@ namespace keshe_Ruangong
             dataGridView1.Columns[2].DefaultCellStyle.SelectionBackColor = Color.White;
             dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.ReadOnly = true;
+            lian.Close();
         }
 
         private void main_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,6 +151,7 @@ namespace keshe_Ruangong
                     dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
                     dataGridView1.ReadOnly = true;
                 }
+                lian.Close();
             }
             else
                 return;
@@ -185,6 +187,7 @@ namespace keshe_Ruangong
             flag1 = flag2 = false;
             num = 0;
             filltitle(ds,num);
+            lian.Close();
         }
         
         public void filltitle(DataSet ds,int now)
@@ -302,6 +305,7 @@ namespace keshe_Ruangong
                 textBox1.Text = "";
                 textBox2.Text = "";
             }
+            lian.Close();
         }
 
         private void 发表博客ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -410,6 +414,13 @@ namespace keshe_Ruangong
         {
             WenZhang f2 = new WenZhang(user, id[2]);
             f2.Show();
+        }
+
+        private void 选修的课程ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+            panel9.Visible = false;
+            label3.Visible = false;
         }
 
     }
