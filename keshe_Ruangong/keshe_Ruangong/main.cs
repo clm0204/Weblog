@@ -167,7 +167,10 @@ namespace keshe_Ruangong
         string[] id = new string[5] ;
         private void 个人信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            flag = false;
+            label3.Visible = true;
+            label6.Text = "的个人中心";
+            label3.Text = user;
             panel5.Visible = true;
             panel9.Visible = false;
            // panel3.Visible = false;
@@ -189,7 +192,7 @@ namespace keshe_Ruangong
             filltitle(ds,num);
             lian.Close();
         }
-        
+        bool flag = false;
         public void filltitle(DataSet ds,int now)
         {
             panel6.Visible = false;
@@ -203,7 +206,7 @@ namespace keshe_Ruangong
                     pictureBox2.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label7.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label8.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
-                    label16.Text = user;
+                    label16.Text = ds.Tables[0].Rows[i].ItemArray[1].ToString(); ;
                     id[0] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
                 else if (i == now + 1)
@@ -212,7 +215,7 @@ namespace keshe_Ruangong
                     pictureBox3.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label10.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label9.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
-                    label17.Text = user;
+                    label17.Text = ds.Tables[0].Rows[i].ItemArray[1].ToString(); 
                     id[1] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
                 else
@@ -221,7 +224,7 @@ namespace keshe_Ruangong
                     pictureBox4.ImageLocation = Application.StartupPath + "/img/rw.png";
                     label12.Text = ds.Tables[0].Rows[i].ItemArray[2].ToString();
                     label11.Text = ds.Tables[0].Rows[i].ItemArray[4].ToString();
-                    label18.Text = user;
+                    label18.Text = ds.Tables[0].Rows[i].ItemArray[1].ToString(); ;
                     id[2] = ds.Tables[0].Rows[i].ItemArray[0].ToString();
                 }
             }
@@ -366,7 +369,12 @@ namespace keshe_Ruangong
 
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
-                selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                if (flag == false)
+                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                else
+                    selectcmd.CommandText = "select * from title where username " +
+                "in(select username2 from friend where username1 = '" + user
+                + "') order by time";
                 SqlDataAdapter custDA = new SqlDataAdapter();
                 custDA.SelectCommand = selectcmd;
 
@@ -387,7 +395,12 @@ namespace keshe_Ruangong
 
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
-                selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                if(flag == false)
+                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                else
+                    selectcmd.CommandText = "select * from title where username " +
+                "in(select username2 from friend where username1 = '" + user
+                + "') order by time";
                 SqlDataAdapter custDA = new SqlDataAdapter();
                 custDA.SelectCommand = selectcmd;
 
@@ -401,27 +414,51 @@ namespace keshe_Ruangong
         private void label7_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[0]);
-            f2.Show();
+            if(flag == false)
+                f2.Show();
         }
 
         private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[1]);
-            f2.Show();
+            if (flag == false)
+                f2.Show();
         }
 
         private void label12_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[2]);
-            f2.Show();
+            if (flag == false)
+                f2.Show();
         }
 
         private void 选修的课程ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            flag = true;
             panel5.Visible = true;
             panel9.Visible = false;
             label3.Visible = false;
+            label6.Text = "好友动态";
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
+
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select * from title where username "+
+                "in(select username2 from friend where username1 = '"+user
+                +"') order by time";
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            flag1 = flag2 = false;
+            num = 0;
+            filltitle(ds, num);
+            lian.Close();
         }
+        
 
     }
 }
