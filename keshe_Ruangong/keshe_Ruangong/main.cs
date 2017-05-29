@@ -67,6 +67,7 @@ namespace keshe_Ruangong
             dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.ReadOnly = true;
             lian.Close();
+            button2.BackgroundImage = Image.FromFile(Application.StartupPath + "/img/刷新.png");
         }
 
         private void main_FormClosing(object sender, FormClosingEventArgs e)
