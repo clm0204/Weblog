@@ -70,7 +70,7 @@ namespace keshe_Ruangong
             flag1 = flag2 = false;
             num = 0;
             //if (ff == 0 || ff == 2)
-            selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data";
+            selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data desc";
             //else if (ff == 1)
                // selectcmd.CommandText = "select * from comment where titid = '" + id + "' and username = '" + user + "' order by data";
             custDA.SelectCommand = selectcmd;
@@ -173,14 +173,43 @@ namespace keshe_Ruangong
 
             DataSet ds = new DataSet();
             custDA.Fill(ds);
-            string num = (ds.Tables[0].Rows.Count + 1).ToString();
+            string num2 = (ds.Tables[0].Rows.Count + 1).ToString();
             string time = System.DateTime.Now.ToString();
-            selectcmd.CommandText = "insert into comment values('" + num
+            selectcmd.CommandText = "insert into comment values('" + num2
                 + "','" + id + "','" + user + "','" + textBox1.Text + "','" + time + "')";
             int j = selectcmd.ExecuteNonQuery();
             if (j == 1)
             {
                 MessageBox.Show("发表成功！");
+                textBox1.Text = "";
+                if (ff == 0)
+                {
+                    panel2.Visible = false;
+                    label6.Visible = false;
+                    label4.Location = new Point(label4.Location.X, panel1.Location.Y + panel1.Size.Height + 20);
+                    panel5.Location = new Point(panel5.Location.X, label4.Location.Y + label4.Size.Height);
+                }
+                else if (ff == 1 || ff == 2)
+                {
+                    panel2.Visible = true;
+                    label6.Visible = true;
+                    label6.Location = new Point(label6.Location.X, panel1.Location.Y + panel1.Size.Height + 10);
+                    panel2.Location = new Point(panel2.Location.X, label6.Location.Y + label6.Size.Height);
+                    label4.Location = new Point(label4.Location.X, panel2.Location.Y + panel2.Size.Height);
+                    panel5.Location = new Point(panel5.Location.X, label4.Location.Y + label4.Size.Height);
+                }
+                flag1 = flag2 = false;
+                num = 0;
+                //if (ff == 0 || ff == 2)
+                selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data desc";
+                //else if (ff == 1)
+                // selectcmd.CommandText = "select * from comment where titid = '" + id + "' and username = '" + user + "' order by data";
+                custDA.SelectCommand = selectcmd;
+
+                DataSet ds2 = new DataSet();
+                custDA.Fill(ds2);
+                fillpinglun(ds2, num);
+                //lian.Close();
             }
             lian.Close();
         }
