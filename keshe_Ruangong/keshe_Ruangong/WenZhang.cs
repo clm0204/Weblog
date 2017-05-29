@@ -160,6 +160,28 @@ namespace keshe_Ruangong
                 MessageBox.Show("请填写评论内容！");
                 return;
             }
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
+
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select * from comment";
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            string num = (ds.Tables[0].Rows.Count + 1).ToString();
+            string time = System.DateTime.Now.ToString();
+            selectcmd.CommandText = "insert into comment values('" + num
+                + "','" + id + "','" + user + "','" + textBox1.Text + "','" + time + "')";
+            int j = selectcmd.ExecuteNonQuery();
+            if (j == 1)
+            {
+                MessageBox.Show("发表成功！");
+            }
+            lian.Close();
         }
       
     }
