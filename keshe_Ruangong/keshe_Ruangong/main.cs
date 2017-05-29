@@ -487,6 +487,56 @@ namespace keshe_Ruangong
             lian.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //好友
+            dataGridView1.Visible = true;
+            panel3.Visible = true;
+            dataGridView1.AllowUserToAddRows = false;
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
+
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select username2 from friend where username1 = '" + user
+                + "' order by username2";
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            ds.Tables[0].Columns.Add(new DataColumn("bt", typeof(string)));
+            ds.Tables[0].Columns.Add(new DataColumn("bt2", typeof(string)));
+            dataGridView1.DataSource = ds.Tables[0];
+            dataGridView1.Columns[0].HeaderText = "好友昵称";
+            dataGridView1.Columns[1].HeaderText = "";
+            dataGridView1.Columns[2].HeaderText = "";
+            //dataGridView1.BackgroundColor = Color.Blue;
+            string bt = "查看";
+            string bt2 = "删除";
+            for (int i = 0; i < ds.Tables[0].Columns.Count; ++i)
+            {
+                // dataGridView1.Columns[i].HeaderText = "aaa";
+                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width /*- dataGridView1.RowHeadersWidth*/) / 3;
+            }
+            for (int i = 0; i < ds.Tables[0].Rows.Count; ++i)
+            {
+                //bt.Name = "lables" + i.ToString();
+                dataGridView1.Rows[i].Cells[1].Value = bt;
+                dataGridView1.Rows[i].Cells[2].Value = bt2;
+                //MessageBox.Show(ds.Tables[0].Rows[i].ItemArray[3].ToString() + "   " + bt);
+            }
+            dataGridView1.Columns[0].DefaultCellStyle.SelectionBackColor = Color.White;
+            dataGridView1.Columns[0].DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.Columns[1].DefaultCellStyle.SelectionBackColor = Color.White;
+            dataGridView1.Columns[1].DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.Columns[2].DefaultCellStyle.SelectionBackColor = Color.White;
+            dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
+            dataGridView1.ReadOnly = true;
+            lian.Close();
+        }
+
         
         
 
