@@ -301,6 +301,7 @@
             this.label8.Size = new System.Drawing.Size(44, 12);
             this.label8.TabIndex = 4;
             this.label8.Text = "上一页";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             this.label8.MouseEnter += new System.EventHandler(this.label8_MouseEnter);
             this.label8.MouseLeave += new System.EventHandler(this.label8_MouseLeave);
             // 
