@@ -97,6 +97,30 @@ namespace keshe_Ruangong
         {
             int x = e.ColumnIndex;
             int row = e.RowIndex;
+            if (x == 1 && row >= 0 && row < dataGridView1.Rows.Count)
+            {
+                flag = 1;
+                panel5.Visible = true;
+                panel9.Visible = false;
+                label3.Visible = false;
+                label6.Text = "好友动态";
+                SqlConnection lian = new SqlConnection();
+                lian.ConnectionString = conn.con;
+                lian.Open();
+
+                SqlCommand selectcmd = new SqlCommand();
+                selectcmd.Connection = lian;
+                selectcmd.CommandText = "select * from title where username = '"+dataGridView1.Rows[row].Cells[0].Value.ToString()+"'";
+                SqlDataAdapter custDA = new SqlDataAdapter();
+                custDA.SelectCommand = selectcmd;
+
+                DataSet ds = new DataSet();
+                custDA.Fill(ds);
+                flag1 = flag2 = false;
+                num = 0;
+                filltitle(ds, num);
+                lian.Close();
+            }
             if (x != 2 || row < 0 || row >= dataGridView1.Rows.Count)
                 return;
             DialogResult rs = MessageBox.Show("确认要删除该好友吗！", "提示", MessageBoxButtons.OKCancel);
@@ -182,7 +206,7 @@ namespace keshe_Ruangong
 
             SqlCommand selectcmd = new SqlCommand();
             selectcmd.Connection = lian;
-            selectcmd.CommandText = "select * from title where username = '"+user+"' order by time";
+            selectcmd.CommandText = "select * from title where username = '"+user+"' order by time desc";
             SqlDataAdapter custDA = new SqlDataAdapter();
             custDA.SelectCommand = selectcmd;
 
@@ -234,7 +258,7 @@ namespace keshe_Ruangong
             else
                 flag1 = false;
 
-            if (now < ds.Tables[0].Rows.Count - 1)
+            if (now +3 < ds.Tables[0].Rows.Count - 1)
                 flag2 = true;
             else
                 flag2 = false; 
@@ -298,8 +322,7 @@ namespace keshe_Ruangong
             DataSet ds = new DataSet();
             custDA.Fill(ds);
             n = (ds.Tables[0].Rows.Count+1).ToString();
-            string time = System.DateTime.Now.ToString(); 
-
+            string time = System.DateTime.Now.ToString();
             selectcmd.CommandText = "insert into title values('"+n+"','"+user
                 +"','"+textBox1.Text+"','"+textBox2.Text+"','"+time+"')";
             int j = selectcmd.ExecuteNonQuery();
@@ -371,11 +394,11 @@ namespace keshe_Ruangong
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
                 if (flag == 0)
-                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time desc";
                 else if(flag == 1)
                     selectcmd.CommandText = "select * from title where username " +
                 "in(select username2 from friend where username1 = '" + user
-                + "') order by time";
+                + "') order by time desc";
                 SqlDataAdapter custDA = new SqlDataAdapter();
                 custDA.SelectCommand = selectcmd;
 
@@ -397,11 +420,11 @@ namespace keshe_Ruangong
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
                 if(flag == 0)
-                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
+                    selectcmd.CommandText = "select * from title where username = '" + user + "' order by time desc";
                 else if(flag == 1)
                     selectcmd.CommandText = "select * from title where username " +
                 "in(select username2 from friend where username1 = '" + user
-                + "') order by time";
+                + "') order by time desc";
                 SqlDataAdapter custDA = new SqlDataAdapter();
                 custDA.SelectCommand = selectcmd;
 
@@ -448,7 +471,7 @@ namespace keshe_Ruangong
             selectcmd.Connection = lian;
             selectcmd.CommandText = "select * from title where username "+
                 "in(select username2 from friend where username1 = '"+user
-                +"') order by time";
+                +"') order by time desc";
             SqlDataAdapter custDA = new SqlDataAdapter();
             custDA.SelectCommand = selectcmd;
 
