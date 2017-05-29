@@ -17,7 +17,7 @@ namespace keshe_Ruangong
         {
             InitializeComponent();
             this.Opacity = 0.97;
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/dl_beijing.jpg");
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk2.jpg");
             denglu.ImageLocation = Application.StartupPath + @"\img\denglu2.png";
         }
 

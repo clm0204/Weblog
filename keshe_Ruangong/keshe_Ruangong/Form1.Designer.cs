@@ -40,7 +40,8 @@
             // 
             // bt_denglu
             // 
-            this.bt_denglu.BackColor = System.Drawing.SystemColors.Highlight;
+            this.bt_denglu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(186)))), ((int)(((byte)(4)))));
+            this.bt_denglu.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.bt_denglu.ForeColor = System.Drawing.Color.White;
             this.bt_denglu.Location = new System.Drawing.Point(84, 208);
             this.bt_denglu.Name = "bt_denglu";
@@ -101,7 +102,8 @@
             // 
             // bt_zhuce
             // 
-            this.bt_zhuce.BackColor = System.Drawing.SystemColors.Highlight;
+            this.bt_zhuce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(186)))), ((int)(((byte)(4)))));
+            this.bt_zhuce.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.bt_zhuce.ForeColor = System.Drawing.Color.White;
             this.bt_zhuce.Location = new System.Drawing.Point(186, 208);
             this.bt_zhuce.Name = "bt_zhuce";
@@ -115,6 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(345, 272);
             this.Controls.Add(this.bt_zhuce);
             this.Controls.Add(this.bt_denglu);

@@ -126,12 +126,12 @@ namespace keshe_Ruangong
 
         private void label8_MouseLeave(object sender, EventArgs e)
         {
-            label8.ForeColor = Color.Black;
+            label8.ForeColor = Color.White;
         }
 
         private void label7_MouseLeave(object sender, EventArgs e)
         {
-            label7.ForeColor = Color.Black;
+            label7.ForeColor = Color.White;
         }
       
     }

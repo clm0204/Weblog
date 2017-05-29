@@ -17,10 +17,10 @@ namespace keshe_Ruangong
         public main(string _user ,string _psw)
         {
             InitializeComponent();
-            pictureBox1.ImageLocation = Application.StartupPath + "/img/博客.png";
+            pictureBox1.ImageLocation = Application.StartupPath + "/img/博客2.png";
             psw = _psw;
             user = _user;
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/beijing.jpg");
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk2.jpg");
             //好友
             dataGridView1.Visible = true;
             panel3.Visible = true;
@@ -67,6 +67,7 @@ namespace keshe_Ruangong
             dataGridView1.Columns[2].DefaultCellStyle.SelectionForeColor = Color.Black;
             dataGridView1.ReadOnly = true;
             lian.Close();
+            //dataGridView1.Size.Height = 40;
             button2.BackgroundImage = Image.FromFile(Application.StartupPath + "/img/刷新.png");
         }
 
@@ -271,7 +272,7 @@ namespace keshe_Ruangong
 
         private void panel6_MouseLeave(object sender, EventArgs e)
         {
-            panel6.BackColor = Color.Snow;
+            panel6.BackColor = Color.White;
         }
 
         private void label8_MouseEnter(object sender, EventArgs e)
@@ -293,7 +294,7 @@ namespace keshe_Ruangong
 
         private void panel8_MouseLeave(object sender, EventArgs e)
         {
-            panel8.BackColor = Color.Snow;
+            panel8.BackColor = Color.White;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -343,22 +344,22 @@ namespace keshe_Ruangong
 
         private void panel7_MouseLeave(object sender, EventArgs e)
         {
-            panel7.BackColor = Color.Snow;
+            panel7.BackColor = Color.White;
         }
 
         private void label7_MouseLeave(object sender, EventArgs e)
         {
-            panel6.BackColor = Color.Snow;
+            panel6.BackColor = Color.White;
         }
 
         private void label9_MouseLeave(object sender, EventArgs e)
         {
-            panel7.BackColor = Color.Snow;
+            panel7.BackColor = Color.White;
         }
 
         private void label11_MouseLeave(object sender, EventArgs e)
         {
-            panel8.BackColor = Color.Snow;
+            panel8.BackColor = Color.White;
         }
 
         private void label4_MouseEnter(object sender, EventArgs e)
@@ -369,7 +370,7 @@ namespace keshe_Ruangong
 
         private void label4_MouseLeave(object sender, EventArgs e)
         {
-            label4.ForeColor = Color.Black;
+            label4.ForeColor = Color.White;
         }
 
         private void label5_MouseEnter(object sender, EventArgs e)
@@ -380,7 +381,7 @@ namespace keshe_Ruangong
 
         private void label5_MouseLeave(object sender, EventArgs e)
         {
-            label5.ForeColor = Color.Black;
+            label5.ForeColor = Color.White;
         }
 
         private void label4_MouseDown(object sender, MouseEventArgs e)
