@@ -441,12 +441,17 @@ namespace keshe_Ruangong
         {
             if (flag == 0)
             {
-                WenZhang f2 = new WenZhang(user, id[0],0);
+                WenZhang f2 = new WenZhang(user, id[0], 0, label16.Text);
                 f2.Show();
             }
             else if (flag == 2)
             {
-                WenZhang f2 = new WenZhang(user, id[0], 1);
+                WenZhang f2 = new WenZhang(user, id[0], 1, label16.Text);
+                f2.Show();
+            }
+            else
+            {
+                WenZhang f2 = new WenZhang(user, id[0], 2, label16.Text);
                 f2.Show();
             }
         }
@@ -455,12 +460,17 @@ namespace keshe_Ruangong
         {
             if (flag == 0)
             {
-                WenZhang f2 = new WenZhang(user, id[1],0);
+                WenZhang f2 = new WenZhang(user, id[1], 0, label16.Text);
                 f2.Show();
             }
             else if (flag == 2)
             {
-                WenZhang f2 = new WenZhang(user, id[1], 1);
+                WenZhang f2 = new WenZhang(user, id[1], 1, label16.Text);
+                f2.Show();
+            }
+            else
+            {
+                WenZhang f2 = new WenZhang(user, id[1], 2, label16.Text);
                 f2.Show();
             }
         }
@@ -469,12 +479,17 @@ namespace keshe_Ruangong
         {
             if (flag == 0)
             {
-                WenZhang f2 = new WenZhang(user, id[2],0);
+                WenZhang f2 = new WenZhang(user, id[2],0,label18.Text);
                 f2.Show();
             }
             else if (flag == 2)
             {
-                WenZhang f2 = new WenZhang(user, id[2], 1);
+                WenZhang f2 = new WenZhang(user, id[2], 1, label18.Text);
+                f2.Show();
+            }
+            else
+            {
+                WenZhang f2 = new WenZhang(user, id[2], 2, label18.Text);
                 f2.Show();
             }
         }

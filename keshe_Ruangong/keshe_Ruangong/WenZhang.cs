@@ -13,21 +13,22 @@ namespace keshe_Ruangong
 {
     public partial class WenZhang : Form
     {
-        string user, id;
+        string user, id,user_tit;
         string neirong, timu;
         bool flag1, flag2;
         int ff;
         int num;
-        public WenZhang(string _user , string _id,int _ff)
+        public WenZhang(string _user , string _id,int _ff,string _user_tit)
         {
             InitializeComponent();
+            user_tit = _user_tit;
             ff = _ff;
             this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk2.jpg");
             user = _user;
             id = _id;
             pictureBox1.ImageLocation = Application.StartupPath + "/img/人物2.png";
            // panel1.BackColor = Color.Snow;
-            label1.Text = user;
+            label1.Text = user_tit;
             SqlConnection lian = new SqlConnection();
             lian.ConnectionString = conn.con;
             lian.Open();
@@ -57,7 +58,7 @@ namespace keshe_Ruangong
                 label4.Location = new Point(label4.Location.X, panel1.Location.Y + panel1.Size.Height + 20);
                 panel5.Location = new Point(panel5.Location.X, label4.Location.Y + label4.Size.Height);
             }
-            else
+            else if (ff == 1 || ff == 2)
             {
                 panel2.Visible = true;
                 label6.Visible = true;
@@ -68,10 +69,10 @@ namespace keshe_Ruangong
             }
             flag1 = flag2 = false;
             num = 0;
-            if (ff == 0)
-                selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data";
-            else if (ff == 1)
-                selectcmd.CommandText = "select * from comment where titid = '" + id + "' and username = '" + user + "' order by data";
+            //if (ff == 0 || ff == 2)
+            selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data";
+            //else if (ff == 1)
+               // selectcmd.CommandText = "select * from comment where titid = '" + id + "' and username = '" + user + "' order by data";
             custDA.SelectCommand = selectcmd;
 
             DataSet ds2 = new DataSet();
