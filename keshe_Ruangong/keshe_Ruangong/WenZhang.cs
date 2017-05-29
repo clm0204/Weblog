@@ -16,10 +16,12 @@ namespace keshe_Ruangong
         string user, id;
         string neirong, timu;
         bool flag1, flag2;
+        int ff;
         int num;
-        public WenZhang(string _user , string _id)
+        public WenZhang(string _user , string _id,int _ff)
         {
             InitializeComponent();
+            ff = _ff;
             this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk2.jpg");
             user = _user;
             id = _id;
@@ -48,11 +50,28 @@ namespace keshe_Ruangong
             neirong = label3.Text = "  " + ds.Tables[0].Rows[i].ItemArray[3].ToString();
 
             //查看评论
-            label4.Location= new Point(label4.Location.X, panel1.Location.Y + panel1.Size.Height + 20);
-            panel5.Location = new Point(panel5.Location.X,label4.Location.Y+label4.Size.Height )　;
+            if (ff == 0)
+            {
+                panel2.Visible = false;
+                label6.Visible = false;
+                label4.Location = new Point(label4.Location.X, panel1.Location.Y + panel1.Size.Height + 20);
+                panel5.Location = new Point(panel5.Location.X, label4.Location.Y + label4.Size.Height);
+            }
+            else
+            {
+                panel2.Visible = true;
+                label6.Visible = true;
+                label6.Location = new Point(label6.Location.X, panel1.Location.Y + panel1.Size.Height + 10);
+                panel2.Location = new Point(panel2.Location.X, label6.Location.Y + label6.Size.Height);
+                label4.Location = new Point(label4.Location.X, panel2.Location.Y + panel2.Size.Height);
+                panel5.Location = new Point(panel5.Location.X, label4.Location.Y + label4.Size.Height);
+            }
             flag1 = flag2 = false;
             num = 0;
-            selectcmd.CommandText = "select * from comment where titid = '"+id+"' order by data";
+            if (ff == 0)
+                selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data";
+            else if (ff == 1)
+                selectcmd.CommandText = "select * from comment where titid = '" + id + "' and username = '" + user + "' order by data";
             custDA.SelectCommand = selectcmd;
 
             DataSet ds2 = new DataSet();
@@ -132,6 +151,15 @@ namespace keshe_Ruangong
         private void label7_MouseLeave(object sender, EventArgs e)
         {
             label7.ForeColor = Color.White;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("请填写评论内容！");
+                return;
+            }
         }
       
     }

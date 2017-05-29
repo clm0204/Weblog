@@ -439,23 +439,44 @@ namespace keshe_Ruangong
 
         private void label7_MouseDown(object sender, MouseEventArgs e)
         {
-            WenZhang f2 = new WenZhang(user, id[0]);
-            if(flag == 0)
+            if (flag == 0)
+            {
+                WenZhang f2 = new WenZhang(user, id[0],0);
                 f2.Show();
+            }
+            else if (flag == 2)
+            {
+                WenZhang f2 = new WenZhang(user, id[0], 1);
+                f2.Show();
+            }
         }
 
         private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
-            WenZhang f2 = new WenZhang(user, id[1]);
             if (flag == 0)
+            {
+                WenZhang f2 = new WenZhang(user, id[1],0);
                 f2.Show();
+            }
+            else if (flag == 2)
+            {
+                WenZhang f2 = new WenZhang(user, id[1], 1);
+                f2.Show();
+            }
         }
 
         private void label12_MouseDown(object sender, MouseEventArgs e)
         {
-            WenZhang f2 = new WenZhang(user, id[2]);
             if (flag == 0)
+            {
+                WenZhang f2 = new WenZhang(user, id[2],0);
                 f2.Show();
+            }
+            else if (flag == 2)
+            {
+                WenZhang f2 = new WenZhang(user, id[2], 1);
+                f2.Show();
+            }
         }
 
         private void 选修的课程ToolStripMenuItem_Click(object sender, EventArgs e)
