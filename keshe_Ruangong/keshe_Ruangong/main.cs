@@ -47,10 +47,11 @@ namespace keshe_Ruangong
             //dataGridView1.BackgroundColor = Color.Blue;
             string bt = "查看";
             string bt2 = "删除";
-            for (int i = 0; i < ds.Tables[0].Columns.Count; ++i)
+            dataGridView1.Columns[0].Width = (dataGridView1.Size.Width) / 2;
+           for (int i = 1; i < ds.Tables[0].Columns.Count; ++i)
             {
                 // dataGridView1.Columns[i].HeaderText = "aaa";
-                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width /*- dataGridView1.RowHeadersWidth*/) / 3;
+                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width ) /4;
             }
             for (int i = 0; i < ds.Tables[0].Rows.Count; ++i)
             {
@@ -539,10 +540,11 @@ namespace keshe_Ruangong
             //dataGridView1.BackgroundColor = Color.Blue;
             string bt = "查看";
             string bt2 = "删除";
-            for (int i = 0; i < ds.Tables[0].Columns.Count; ++i)
+            dataGridView1.Columns[0].Width = (dataGridView1.Size.Width) / 2;
+            for (int i = 1; i < ds.Tables[0].Columns.Count; ++i)
             {
                 // dataGridView1.Columns[i].HeaderText = "aaa";
-                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width /*- dataGridView1.RowHeadersWidth*/) / 3;
+                dataGridView1.Columns[i].Width = (dataGridView1.Size.Width) / 4;
             }
             for (int i = 0; i < ds.Tables[0].Rows.Count; ++i)
             {

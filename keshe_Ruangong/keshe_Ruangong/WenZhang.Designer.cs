@@ -127,8 +127,9 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(196)))), ((int)(((byte)(40)))));
             this.label4.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(0, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(683, 23);
@@ -177,7 +178,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(36, 82);
+            this.label18.Location = new System.Drawing.Point(39, 82);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(54, 12);
             this.label18.TabIndex = 4;
@@ -232,7 +233,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(36, 81);
+            this.label17.Location = new System.Drawing.Point(39, 81);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(54, 12);
             this.label17.TabIndex = 4;
@@ -313,7 +314,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(36, 81);
+            this.label16.Location = new System.Drawing.Point(39, 81);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 12);
             this.label16.TabIndex = 3;
