@@ -213,6 +213,29 @@ namespace keshe_Ruangong
             }
             lian.Close();
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            if (flag2 == true)
+            {
+                SqlConnection lian = new SqlConnection();
+                lian.ConnectionString = conn.con;
+                lian.Open();
+
+                SqlCommand selectcmd = new SqlCommand();
+                selectcmd.Connection = lian;
+                selectcmd.CommandText = "select * from comment where titid = '" + id + "' order by data desc";
+                SqlDataAdapter custDA = new SqlDataAdapter();
+                custDA.SelectCommand = selectcmd;
+
+                DataSet ds = new DataSet();
+                custDA.Fill(ds);
+                fillpinglun(ds, num + 3);
+                num = num + 3;
+            }
+        }
+
+       
       
     }
 }

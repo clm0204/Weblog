@@ -287,6 +287,7 @@
             this.label7.Size = new System.Drawing.Size(44, 12);
             this.label7.TabIndex = 5;
             this.label7.Text = "下一页";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             this.label7.MouseEnter += new System.EventHandler(this.label7_MouseEnter);
             this.label7.MouseLeave += new System.EventHandler(this.label7_MouseLeave);
             // 
