@@ -167,7 +167,7 @@ namespace keshe_Ruangong
         string[] id = new string[5] ;
         private void 个人信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flag = false;
+            flag = 0;
             label3.Visible = true;
             label6.Text = "的个人中心";
             label3.Text = user;
@@ -192,7 +192,7 @@ namespace keshe_Ruangong
             filltitle(ds,num);
             lian.Close();
         }
-        bool flag = false;
+        int flag ;
         public void filltitle(DataSet ds,int now)
         {
             panel6.Visible = false;
@@ -369,9 +369,9 @@ namespace keshe_Ruangong
 
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
-                if (flag == false)
+                if (flag == 0)
                     selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
-                else
+                else if(flag == 1)
                     selectcmd.CommandText = "select * from title where username " +
                 "in(select username2 from friend where username1 = '" + user
                 + "') order by time";
@@ -395,9 +395,9 @@ namespace keshe_Ruangong
 
                 SqlCommand selectcmd = new SqlCommand();
                 selectcmd.Connection = lian;
-                if(flag == false)
+                if(flag == 0)
                     selectcmd.CommandText = "select * from title where username = '" + user + "' order by time";
-                else
+                else if(flag == 1)
                     selectcmd.CommandText = "select * from title where username " +
                 "in(select username2 from friend where username1 = '" + user
                 + "') order by time";
@@ -414,27 +414,27 @@ namespace keshe_Ruangong
         private void label7_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[0]);
-            if(flag == false)
+            if(flag == 0)
                 f2.Show();
         }
 
         private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[1]);
-            if (flag == false)
+            if (flag == 0)
                 f2.Show();
         }
 
         private void label12_MouseDown(object sender, MouseEventArgs e)
         {
             WenZhang f2 = new WenZhang(user, id[2]);
-            if (flag == false)
+            if (flag == 0)
                 f2.Show();
         }
 
         private void 选修的课程ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            flag = true;
+            flag = 1;
             panel5.Visible = true;
             panel9.Visible = false;
             label3.Visible = false;
@@ -458,6 +458,35 @@ namespace keshe_Ruangong
             filltitle(ds, num);
             lian.Close();
         }
+
+        private void 我的评论ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            flag = 2;
+            panel5.Visible = true;
+            panel9.Visible = false;
+            label3.Visible = false;
+            label6.Text = "我的评论";
+            SqlConnection lian = new SqlConnection();
+            lian.ConnectionString = conn.con;
+            lian.Open();
+
+            SqlCommand selectcmd = new SqlCommand();
+            selectcmd.Connection = lian;
+            selectcmd.CommandText = "select * from title where id in (select titid from comment where username = '"+
+                user+"')";
+            //MessageBox.Show(selectcmd.CommandText);
+            SqlDataAdapter custDA = new SqlDataAdapter();
+            custDA.SelectCommand = selectcmd;
+
+            DataSet ds = new DataSet();
+            custDA.Fill(ds);
+            flag1 = flag2 = false;
+            num = 0;
+            filltitle(ds, num);
+            lian.Close();
+        }
+
+        
         
 
     }
