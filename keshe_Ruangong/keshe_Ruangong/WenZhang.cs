@@ -20,11 +20,11 @@ namespace keshe_Ruangong
         public WenZhang(string _user , string _id)
         {
             InitializeComponent();
-            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk.jpg");
+            this.BackgroundImage = Image.FromFile(Application.StartupPath + @"/img/bj_bk2.jpg");
             user = _user;
             id = _id;
             pictureBox1.ImageLocation = Application.StartupPath + "/img/人物2.png";
-            panel1.BackColor = Color.Snow;
+           // panel1.BackColor = Color.Snow;
             label1.Text = user;
             SqlConnection lian = new SqlConnection();
             lian.ConnectionString = conn.con;
