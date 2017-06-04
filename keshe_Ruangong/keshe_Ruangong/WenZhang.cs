@@ -126,7 +126,7 @@ namespace keshe_Ruangong
             else
                 flag1 = false;
 
-            if (now < ds.Tables[0].Rows.Count - 1)
+            if (now + 3 <= ds.Tables[0].Rows.Count - 1)
                 flag2 = true;
             else
                 flag2 = false; 
